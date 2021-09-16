@@ -1,0 +1,25 @@
+.user-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #ebebeb;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+
+  &__btn {
+    width: 20rem;
+    height: 5rem;
+  }
+
+  &__user-info {
+    display: flex;
+
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+}

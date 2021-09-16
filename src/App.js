@@ -1,3 +1,4 @@
+import "./sass/main.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
@@ -62,37 +63,31 @@ const App = () => {
 
   const handleChange = (newSelectedOption) => {
     setSelectedOption(newSelectedOption);
-    // selectedOption can be null when the `x` (close) button is clicked
-    // if (selectedOption) {
-    //   console.log(`Selected: ${selectedOption.label}`);
   };
 
   return (
     <>
-      <h1>Users</h1>
+      <h1 className="heading-primary">Usuarios</h1>
       <Select
         options={options}
         value={selectedOption}
         defaultValue={options[2]}
         onChange={handleChange}
+        className="options"
       />
       {isLoading ? (
         <h3>Cargando...</h3>
       ) : users.length !== 0 ? (
         users.map(
           ({ id, userResponseDto: { name, lastname, email, stateText } }) => (
-            <>
-              <br />
-              <UserContainer
-                id={id}
-                name={name}
-                lastname={lastname}
-                email={email}
-                stateText={stateText}
-                schedule={schedule}
-              />
-              <br />
-            </>
+            <UserContainer
+              id={id}
+              name={name}
+              lastname={lastname}
+              email={email}
+              stateText={stateText}
+              schedule={schedule}
+            />
           )
         )
       ) : (
